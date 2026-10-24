@@ -1,14 +1,14 @@
-var Service = require("node-windows").Service;
+﻿var Service = require('node-windows').Service;
+var path = require('path');
 var svc = new Service({
-  name: "BS120 Server Service",
+  name: 'ABL800-FLEX Server Service',
   description:
-    "A server service for sending out test results for BS120 to connected clients through sockets.",
-  script: "C:\\BS120-CSV\\app.js",
+    'A server service for sending out test results for ABL800-FLEX to connected clients through sockets.',
+  script: path.join(__dirname, 'app.js'),
 });
 
-// Listen for the "install" event, which indicates the
-// process is available as a service.
-svc.on("install", function () {
+svc.on('install', function () {
   svc.start();
 });
 svc.install();
+
